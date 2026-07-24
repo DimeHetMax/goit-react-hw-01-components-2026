@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1e0700a2-5183-4291-85cc-2065a036a683",
+    "type": "invoice",
+    "amount": "964.82",
+    "currency": "LRD"
+  },
+  {
+    "id": "4c8e5a85-14f0-4ffa-8ef0-4c2e4e7e4e6a",
+    "type": "payment",
+    "amount": "489.12",
+    "currency": "WST"
+  },
+  {
+    "id": "7f6a1c58-9d23-4c87-ae41-0d85c3f142b9",
+    "type": "withdrawal",
+    "amount": "125.50",
+    "currency": "USD"
+  },
+  {
+    "id": "a2f9d8e1-6b34-4e72-91c5-3f8a7d2b604e",
+    "type": "deposit",
+    "amount": "850.00",
+    "currency": "EUR"
+  },
+  {
+    "id": "c5b3e740-8a16-4f29-b672-1e93d5a408fc",
+    "type": "invoice",
+    "amount": "320.75",
+    "currency": "GBP"
+  },
+  {
+    "id": "d8a4f291-2c57-4b86-9e30-7f1c5a624db3",
+    "type": "payment",
+    "amount": "77.40",
+    "currency": "CAD"
+  },
+  {
+    "id": "e1c7b536-5d82-4a09-a413-6b28f9d750ce",
+    "type": "withdrawal",
+    "amount": "540.25",
+    "currency": "AUD"
+  },
+  {
+    "id": "f3d9a862-7e41-4c65-b028-9a5f1d374eb6",
+    "type": "deposit",
+    "amount": "1100.00",
+    "currency": "JPY"
+  }
+]
