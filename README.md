@@ -1,77 +1,179 @@
-# React + TypeScript + Vite
+# React Components Homework
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was created as the first React homework assignment for the GoIT
+course. It demonstrates how to build reusable React components, pass data
+through props, render collections, use conditional rendering, and describe
+component data with TypeScript.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Vite
+- CSS Modules
+- `clsx` for conditional class names
+- ESLint
+- Local JSON data
 
-## React Compiler
+## Components
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Profile
 
-Note: This will impact Vite dev & build performances.
+Displays a user profile with:
 
-## Expanding the ESLint configuration
+- Avatar
+- Username
+- Tag
+- Location
+- Followers, views, and likes statistics
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Statistics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Renders a collection of statistical items. The title is optional and is
+displayed using conditional rendering.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Each statistical item contains:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Unique ID
+- Label
+- Percentage
 
+### FriendList
+
+Receives an array of friends and renders a `FriendListItem` for every friend.
+Stable IDs from the data are used as React keys.
+
+Each friend contains:
+
+- Unique ID
+- Avatar
+- Name
+- Online status
+
+The online status is styled conditionally with the help of `clsx`.
+
+### TransactionHistory
+
+Displays transaction data in a responsive table.
+
+Each transaction contains:
+
+- Unique ID
+- Transaction type
+- Amount
+- Currency
+
+## TypeScript
+
+Shared TypeScript interfaces and type aliases are stored in
+`src/types/types.ts`. They describe component props and the structure of profile,
+statistics, friend, and transaction data.
+
+The project uses type-only imports where appropriate:
+
+```ts
+import type { ProfileProps } from "../../types/types";
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Styling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Every component has its own CSS Module. The interface uses:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Responsive layouts for mobile, tablet, and desktop
+- Modern card styling
+- Shadows and gradients
+- Hover effects
+- Reduced-motion support
+- A global browser reset
+- A shared responsive container
 
+Global styles and the responsive container are defined in `src/index.css`.
+
+## Data
+
+Component data is stored in separate JSON files:
+
+```text
+src/data/
+├── friends.json
+├── statistics.json
+├── transactions.json
+└── user.json
+```
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── App/
+│   ├── FriendList/
+│   ├── FriendListItem/
+│   ├── Profile/
+│   ├── Statistics/
+│   └── TransactionHistory/
+├── data/
+├── types/
+├── index.css
+└── main.tsx
+```
+
+## Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Starts the Vite development server.
+
+```bash
+npm run build
+```
+
+Runs the TypeScript compiler and creates a production build.
+
+```bash
+npm run lint
+```
+
+Checks the project with ESLint.
+
+```bash
+npm run preview
+```
+
+Starts a local server for previewing the production build.
+
+## GitHub Pages
+
+The project includes a GitHub Actions workflow that automatically builds and
+deploys the application whenever changes are pushed to the `main` branch.
+
+Before the first deployment, open the repository on GitHub and select:
+
+```text
+Settings → Pages → Build and deployment → Source → GitHub Actions
+```
+
+Then push the project to the `main` branch. The deployment progress will be
+available in the **Actions** tab.
+
+Live page:
+
+```text
+https://dimehetmax.github.io/goit-react-hw-01-components-2026/
 ```
